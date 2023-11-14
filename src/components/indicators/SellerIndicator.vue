@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useUsersStore } from '../../stores/usersStore.ts';
-import { ref, onBeforeMount } from 'vue'
+import { ref, onMounted } from 'vue'
 import type { Ref } from 'vue'
 import { UserItem } from '../../interfaces.ts'
 
@@ -24,8 +24,18 @@ const props = defineProps<{
     address?: boolean
 }>()
 
-onBeforeMount(() => {
-    user.value = userStore.users.filter((user) => user.id === props.index + 1)[0]
+onMounted(() => {
+    let timer = setInterval(() => {
+
+        if(userStore.users.length > 0){
+            let findUser = userStore.users.filter((user) => user.id === props.index + 1)[0]
+            if(findUser){
+                user.value = findUser
+            }
+
+            clearInterval(timer)
+        }
+    }, 100)
 })
 
 </script>
