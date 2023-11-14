@@ -170,7 +170,6 @@ function changeBodyPosition(position: string){
 
                     <PrimaryButton
                         class="w-full large-button"
-                        size="lg"
                         type="warning"
                         :disabled="checkoutStore.bag.length < 1"
                     >
