@@ -85,5 +85,3 @@ defineProps<{
         </router-link>
     </article>
 </template>
-
-../../composables/shoppingBag.ts
