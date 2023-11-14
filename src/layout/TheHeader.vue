@@ -7,12 +7,11 @@ import { useRouter } from "vue-router"
 let router = useRouter()
 
 function search(text: string){
-
+    let query = text ? {text} : {}
+    
     router.push({
         name: 'products',
-        query: {
-            text
-        }
+        query
     })
 }
 </script>
