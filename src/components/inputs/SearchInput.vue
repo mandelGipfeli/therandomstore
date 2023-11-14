@@ -1,18 +1,29 @@
 <script setup lang="ts">
 import { Search } from '@element-plus/icons-vue'
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import type { Ref } from 'vue'
+import { useRoute, useRouter } from "vue-router"
 
 const emit = defineEmits<{
   search: [input: string]
 }>()
 
-let input: Ref<string> = ref('')
+let router = useRouter()
+let route = useRoute()
+let input: Ref<any> = ref('')
 
 function search(){
     emit('search', input.value)
 }
 
+/** Capture urls with text params when router is active */
+onMounted(async() => {
+    await router.isReady()
+    
+    if(route.query.text){
+        input.value = route.query.text
+    }
+})
 
 </script>
 
