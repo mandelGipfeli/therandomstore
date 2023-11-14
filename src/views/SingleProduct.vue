@@ -69,9 +69,9 @@ onMounted(() => {
     <!-- Nav -->
     
     <div
-        class="flex max-sm:flex-col"
+        class="flex max-sm:flex-col max-sm:mt-4"
     >
-        <div class="flex justify-center main-image-container w-6/12 max-md:w-full m-2 ml-0 p-2 pl-0">
+        <div class="flex justify-center main-image-container w-6/12 max-md:w-full m-2 ml-0 p-2 pl-0 max-sm:p-0 max-sm:m-0 max-sm:h-[250px]">
             <el-image class="rounded-md	border border-gray-200" style="width: auto;" :src="selectedImage" fit="cover" />  
         </div>
         <!-- Main image -->
@@ -121,11 +121,12 @@ onMounted(() => {
             </div>
             
             <div
-                class="flex items-end flex-1"
+                class="flex items-end flex-1 max-sm:w-full"
             >
                     <PrimaryButton
                         @click="addToBag(product)"
                         type="warning"
+                        class="max-sm:w-full large-button"
                     >
                         Add to bag
                     </PrimaryButton>
@@ -136,6 +137,11 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
+
+.large-button {
+    font-size: 18px;
+    height: 50px;
+}
 
 .main-image-container {
     .el-image{
