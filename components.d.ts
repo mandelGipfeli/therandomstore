@@ -24,8 +24,6 @@ declare module 'vue' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SearchInput: typeof import('./src/components/inputs/SearchInput.vue')['default']
-    SelectInput: typeof import('./src/components/inputs/SelectInput.vue')['default']
-    SelectInputBase: typeof import('./src/components/inputs/SelectInputBase.vue')['default']
     SellerIndicator: typeof import('./src/components/indicators/SellerIndicator.vue')['default']
     ShoppingBagIndicator: typeof import('./src/components/indicators/ShoppingBagIndicator.vue')['default']
   }

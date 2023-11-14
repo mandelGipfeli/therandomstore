@@ -40,7 +40,7 @@ onBeforeMount(() => {
   <router-view></router-view>
 </template>
 
-<style scoped>
+<style>
   .slide-fade-enter-active {
     transition: all 0.1s ease-out;
   }

@@ -1,12 +1,32 @@
 <script setup lang="ts">
 import { useUsersStore } from '../../stores/usersStore.ts';
+import { ref, onBeforeMount } from 'vue'
+import type { Ref } from 'vue'
+import { UserItem } from '../../interfaces.ts'
 
 const userStore = useUsersStore()
+let user: Ref<UserItem> = ref({
+    firstName: '',
+    lastName: '',
+    address: {
+        address: '',
+        city: '',
+        postalCode: '',
+        state: ''
+    },
+    username: '',
+    id: -1,
+    image: ''
+})
 
-defineProps<{
+const props = defineProps<{
     index: number,
     address?: boolean
 }>()
+
+onBeforeMount(() => {
+    user.value = userStore.users.filter((user) => user.id === props.index + 1)[0]
+})
 
 </script>
 
@@ -17,15 +37,15 @@ defineProps<{
     >
         <div>
             Posted by 
-            {{ userStore.users[index].firstName }}
-            {{ userStore.users[index].lastName }}
-            <!-- user's name -->
+
+            {{ user.firstName }}
+            {{ user.lastName }}
 
             <span
                 v-if="address"
             >
-                from {{ userStore.users[index].address.city }}
-                ,{{ userStore.users[index].address.state }}
+                from {{ user.address.city }}
+                ,{{ user.address.state }}
             </span>
             <!-- user's locatoin -->
         </div>

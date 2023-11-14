@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import { Search } from '@element-plus/icons-vue'
 import { ref } from 'vue'
+import type { Ref } from 'vue'
 
 const emit = defineEmits<{
   search: [input: string]
 }>()
 
-let input: string = ref('')
+let input: Ref<string> = ref('')
 
 function search(){
     emit('search', input.value)

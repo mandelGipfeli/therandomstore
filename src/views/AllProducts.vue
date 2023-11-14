@@ -139,7 +139,7 @@ watch(
         <main>
             <ProductsList
                 :products="products"
-            ></ProductsList>  
+            ></ProductsList>
         </main>
     </div>        
 </template>

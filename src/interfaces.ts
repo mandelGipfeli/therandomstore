@@ -39,7 +39,10 @@ interface AddressItem {
 interface UserItem {
   username: string;
   image: string;
-  address: Array<AddressItem>;
+  address: AddressItem;
+  id: number;
+  firstName: string,
+  lastName: string,
 }
 
 interface UsersObject {
@@ -49,4 +52,4 @@ interface UsersObject {
   skip?: number;  
 }
 
-export type { ProductItem, ProductObject, CheckoutState, UsersObject, UsersState}
+export type { ProductItem, ProductObject, CheckoutState, UsersObject, UsersState, UserItem}
